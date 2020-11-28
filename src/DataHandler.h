@@ -24,7 +24,9 @@ class DataHandler {
     /**
      * @return matrix of pointers. The data matrix
      **/
-    double** get_data();
+    double** get_data() const;
+    int get_number_data_points() const;
+    int get_dimension() const;
 
 
     private:
