@@ -16,7 +16,7 @@ class DataHandler {
      * @param dimension of the model to fit
      * @param number_data_points
      **/
-    DataHandler(std::string file_name, int dimension, int number_data_points);
+    DataHandler(std::string file_name);
     /**
      * Overloaded destructor where deallocation of memory is handled
      */
@@ -32,7 +32,8 @@ class DataHandler {
      * reads the already opened data file and stores its content in the data matrix
      * @param file stream to read from data file
      **/
-    void read_data(std::ifstream file);
+    void read_data();
+    std::ifstream file;
     /**
      * dimension of the problem
      **/

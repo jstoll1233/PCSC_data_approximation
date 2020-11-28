@@ -5,29 +5,30 @@
 #include "DataHandler.h"
 #include <sstream>
 DataHandler::DataHandler(std::string file_name)
+: dim(0), num_dp(0)
 {
-    std::ifstream file(file_name);
-    if (not file.is_open()) {
+    file.open(file_name);
+    if (not file) {
         throw std::runtime_error("file not found ");
     }
     else{
-        read_data(std::ifstream file);
+        read_data();
     }
 }
 
-void DataHandler::read_data(std::ifstream file) {
-
+void DataHandler::read_data() {
+    std::string line;
     std::getline(file, line, ',');
     if (line == "\uFEFFdimension"){
         std::getline(file, line);
-        dim = std::stod(line);
+        dim = std::stoi(line);
         var = new std::string [dim];
     }
 
     std::getline(file, line, ',');
     if (line == "number_of_points"){
         std::getline(file, line);
-        num_dp = std::stod(line);
+        num_dp = std::stoi(line);
     }
 
     std::getline(file, line, ',');
@@ -48,12 +49,12 @@ void DataHandler::read_data(std::ifstream file) {
     }
 
     int l = 0;
-    int c = 0;
+    int c;
     while(std::getline(file, line)){
         c = 0;
         std::stringstream ss(line);
         while(getline(ss, line, ',')){
-            A[l][c] = std::stod(line);
+            data[l][c] = std::stod(line);
             ++c;
         }
         ++l;
