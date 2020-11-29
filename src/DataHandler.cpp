@@ -62,7 +62,7 @@ void DataHandler::read_data() {
 }
 
 
-double ** DataHandler::get_data() {
+double ** DataHandler::get_data() const {
     return data;
 }
 
@@ -73,4 +73,12 @@ DataHandler::~DataHandler() {
     delete [] data;
 
     delete [] var;
+}
+
+int DataHandler::get_number_data_points() const {
+    return num_dp;
+}
+
+int DataHandler::get_dimension() const {
+    return dim;
 }
