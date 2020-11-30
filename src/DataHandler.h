@@ -7,23 +7,24 @@
 
 #include <string>
 #include <fstream>
+/**
+ * Class DataHandler. Data for the approximation problem is manged via this class.
+ */
 class DataHandler {
 
     public:
     /**
-     * Overloaded constructore for class DataHandler.
+     * Overloaded constructor for class DataHandler.
      * @param file_name containing the data
-     * @param dimension of the model to fit
-     * @param number_data_points
-     **/
+     */
     DataHandler(std::string file_name);
     /**
-     * Overloaded destructor where deallocation of memory is handled
+     * Overloaded destructor where de allocation of memory is handled
      */
     ~DataHandler();
     /**
      * @return matrix of pointers. The data matrix
-     **/
+     */
     double** get_data() const;
     int get_number_data_points() const;
     int get_dimension() const;
@@ -33,12 +34,12 @@ class DataHandler {
     /**
      * reads the already opened data file and stores its content in the data matrix
      * @param file stream to read from data file
-     **/
+     */
     void read_data();
     std::ifstream file;
     /**
      * dimension of the problem
-     **/
+     */
     int dim;
     int num_dp;
     std::string* var;
