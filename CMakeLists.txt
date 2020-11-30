@@ -3,4 +3,6 @@ project(PCSC_data_approximation)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(PCSC_data_approximation src/main.cpp src/DataHandler.cpp)
+add_executable(PCSC_data_approximation src/main.cpp src/DataHandler.cpp src/LeastSquares.cpp)
+include_directories("libraries/eigen/eigen")
+#include_directories("/home/kshevche/myfiles/Programmation/eigen/eigen")
