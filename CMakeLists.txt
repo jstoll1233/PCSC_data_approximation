@@ -7,10 +7,11 @@ include_directories("libraries/eigen")
 
 #add_library(pcsc src/pcsc.cc)
 
-add_executable(data_approximation src/main.cpp src/DataHandler.cpp)
-#add_executable(data_approximation src/main.cpp src/DataHandler.cpp src/LeastSquares.cpp)
+#add_executable(data_approximation src/main.cpp src/DataHandler.cpp)
+add_executable(data_approximation src/main.cpp src/DataHandler.cpp src/LeastSquares.cpp)
 
-#target_link_libraries(main pcsc)
+#target_link_libraries()
+
 
 add_subdirectory(googletest)
 
