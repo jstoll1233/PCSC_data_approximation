@@ -28,6 +28,7 @@ class DataHandler {
     double** get_data() const;
     int get_number_data_points() const;
     int get_dimension() const;
+    std::string* get_variables() const;
 
 
     private:

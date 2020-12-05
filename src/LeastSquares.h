@@ -10,7 +10,7 @@
 #ifndef PCSC_EXERCISES_LEASTSQUARES_H
 #define PCSC_EXERCISES_LEASTSQUARES_H
 
-/**
+    /**
      * Function for least squares aprroximation
      * @param data_ containing the data
      * @param degree - degree of approximating polynomial

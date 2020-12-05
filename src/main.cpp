@@ -16,6 +16,8 @@ int main(int argc, char ** argv){
 
     try {
         DataHandler handler(path);
+        int dim = handler.get_dimension();
+        std::cout << "Dimension " << dim;
 
     }
 
@@ -23,5 +25,7 @@ int main(int argc, char ** argv){
         std::cerr << e.what() << std::endl;
         return 1;
     }
+
+
     return 0;
 }

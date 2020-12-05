@@ -27,6 +27,5 @@ Eigen::VectorXf LeastSquares(const DataHandler& data_, const int degree) {
     //solution of the system by QR factorization
     Eigen::VectorXf w = x.householderQr().solve(y);
     //std::cout << "Vector w = " << w << std::endl;
-    //std::cout << "x * w = " << x * w << std::endl;
     return w;
 }
