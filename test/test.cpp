@@ -3,8 +3,11 @@
 //
 
 #include <gtest/gtest.h>
+#include <Eigen/Dense>
 #include "../src/DataHandler.h"
-
+#include "../src/Lagrange.h"
+#include "../src/Barycentric.h"
+#include "../src/LeastSquares.h"
 
 int main(int argc, char **argv) {
 
@@ -18,7 +21,8 @@ int main(int argc, char **argv) {
 }
 
 // Tests for Data Handler
-std::string file_path = "../data/template_file.txt";
+//std::string file_path = "../data/template_file.txt";
+std::string file_path = "/home/kshevche/myfiles/Programmation/exercise/work/PCSC_data_approximation/data/template_file.txt";
 DataHandler DataHandler_t(file_path);
 int dimension = DataHandler_t.get_dimension();
 int n_points = DataHandler_t.get_number_data_points();
@@ -100,6 +104,61 @@ TEST(datahandler, read_data_exception){
     catch (...) {
         FAIL() << "Expected std::runtime_error";
     }
+}
+
+
+DataHandler DataHandler_t_(file_path);
+int dimension_ =  DataHandler_t_.get_dimension();
+int n_points_ =  DataHandler_t_.get_number_data_points();
+double** data_ = DataHandler_t_.get_data();
+
+Lagrange lagrange;
+
+TEST(lagrange, point_exception){
+    try {
+        lagrange.Calculate_value_of_interpolant(DataHandler_t_, 0.5);
+        FAIL() << "Expected std::range_error";
+    }
+    catch (std::range_error &e) {
+        EXPECT_EQ(e.what(), std::string("The point does not belong to the interval"));
+    }
+    catch (...) {
+        FAIL() << "Expected std::range_error";
+    }
+}
+
+
+TEST(lagrange, lagrange_calculation) {
+    EXPECT_NEAR(lagrange.Calculate_value_of_interpolant(DataHandler_t_, 5), 12.80964, 0.001);
+}
+
+
+Barycentric barycentric;
+
+TEST(barycentric, point_exception){
+    try {
+        barycentric.Calculate_value_of_interpolant(DataHandler_t_, 0.5);
+        FAIL() << "Expected std::range_error";
+    }
+    catch (std::range_error &e) {
+        EXPECT_EQ(e.what(), std::string("The point does not belong to the interval"));
+    }
+    catch (...) {
+        FAIL() << "Expected std::range_error";
+    }
+}
+
+TEST(barycentric, barycentric_calculation) {
+    EXPECT_NEAR(barycentric.Calculate_value_of_interpolant(DataHandler_t_, 5), 12.80964, 0.001);
+}
+
+//Eigen::VectorXf vect(3);
+//vect(0) = -0.0144, vect(1) = 0.192, vect(2) = 3.697;
+
+TEST(least_squares, least_squares_calculation) {
+    EXPECT_NEAR(LeastSquares(DataHandler_t_, 2)[0], 3.697, 0.001);
+    EXPECT_NEAR(LeastSquares(DataHandler_t_, 2)[1], 0.192, 0.001);
+    EXPECT_NEAR(LeastSquares(DataHandler_t_, 2)[2], -0.0144, 0.001);
 }
 
 
