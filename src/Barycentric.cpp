@@ -8,6 +8,10 @@ double Barycentric::Calculate_value_of_interpolant(const DataHandler& data_, dou
     //get the number of data points and data matrix
     int num_dp = data_.get_number_data_points();
     double **x = data_.get_data();
+    if ((point < x[0][0]) || (point > x[num_dp - 1][0])) {
+        throw std::range_error("The point does not belong to the interval");
+
+    }
 
     double value_num = 0;
     double value_den = 0;

@@ -22,6 +22,10 @@ double Lagrange::Numerator(const DataHandler& data_, int k, double point) {
 
 double Lagrange::Calculate_value_of_interpolant(const DataHandler& data_, double point) {
     int num_dp = data_.get_number_data_points();
+    if ((point < data_.get_data()[0][0]) || (point > data_.get_data()[num_dp - 1][0])) {
+        throw std::range_error("The point does not belong to the interval");
+
+    }
     double value = 0;
     for (int k = 0; k < num_dp; k++) {
         value += data_.get_data()[k][1] * Numerator(data_, k, point) / Denominator(data_, k);
