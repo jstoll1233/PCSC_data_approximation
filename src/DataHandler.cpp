@@ -98,6 +98,7 @@ double** DataHandler::get_data() const {
 }
 
 DataHandler::~DataHandler() {
+    std::cout << "(Memory successfully freed)"<< std::endl;
     for (int i = 0; i < num_dp; ++i){
         delete [] data[i];
     }
