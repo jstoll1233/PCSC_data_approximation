@@ -12,6 +12,7 @@
  */
 class Barycentric: public Interpolation {
 public:
+    Barycentric(const DataHandler& handler): Interpolation(handler){};
     double Calculate_value_of_interpolant(const double point) override;
 };
 

@@ -3,12 +3,11 @@
 //
 
 #include "LeastSquares.h"
+#include <math.h>
 
-Eigen::VectorXf LeastSquares(const DataHandler& data_, const int degree) {
-    //get the number of data points
+LeastSquares::LeastSquares(const DataHandler &data_, const int degree) {
+    deg = degree;
     int num_dp = data_.get_number_data_points();
-
-    //creating a matrix of the left side of a system of linear equations
     Eigen::MatrixXf x(num_dp, degree + 1);
     for (int i = 0; i < num_dp; i++) {
         for (int j = 0; j <= degree; j++) {
@@ -25,7 +24,13 @@ Eigen::VectorXf LeastSquares(const DataHandler& data_, const int degree) {
     //std::cout << "Vector y = " << y << std::endl;
 
     //solution of the system by QR factorization
-    Eigen::VectorXf w = x.householderQr().solve(y);
-    //std::cout << "Vector w = " << w << std::endl;
-    return w;
+    coefs = x.householderQr().solve(y);
+}
+
+double LeastSquares::Calculate_value_at_point(const double point) {
+    double evaluation = 0.0;
+    for (int i = 0; i < deg+1; ++i){
+        evaluation += coefs(i)*pow(point,i);
+    }
+    return evaluation;
 }

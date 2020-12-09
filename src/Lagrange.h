@@ -14,6 +14,7 @@ class Lagrange: public Interpolation {
 private:
     double Numerator(int k, double point);
 public:
+    Lagrange(const DataHandler& handler): Interpolation(handler){};
     double Calculate_value_of_interpolant(const double point) override;
 };
 
