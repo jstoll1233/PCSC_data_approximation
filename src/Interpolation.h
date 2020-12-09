@@ -6,6 +6,7 @@
 #define PCSC_EXERCISES_INTERPOLATION_H
 
 #include "DataHandler.h"
+#include <limits>
 
 /**
  * Class Interpolation for calculating interpolating function

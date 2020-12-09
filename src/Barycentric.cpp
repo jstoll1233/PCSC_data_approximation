@@ -9,7 +9,7 @@ double Barycentric::Calculate_value_of_interpolant(double point) {
     //int num_dp = data_.get_number_data_points();
     //double **x = data_.get_data();
     if ((point < range_min) || (point > range_max)) {
-        throw std::range_error("The point does not belong to the interval");
+        return std::numeric_limits<double>::quiet_NaN();
 
     }
 

@@ -20,10 +20,10 @@ double Lagrange::Numerator(int k, double point) {
     return xdiff;
 }
 
-double Lagrange::Calculate_value_of_interpolant(const DataHandler& da, double point) {
+double Lagrange::Calculate_value_of_interpolant(double point) {
     //int num_dp = data_.get_number_data_points();
     if ((point < range_min) || (point > range_max)) {
-        throw std::range_error("The point does not belong to the interval");
+        return std::numeric_limits<double>::quiet_NaN();
 
     }
     double value = 0;
