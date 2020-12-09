@@ -1,0 +1,7 @@
+dimension,1
+number_of_points,5
+variables,x
+1
+2
+3
+4

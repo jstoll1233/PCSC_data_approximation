@@ -22,7 +22,7 @@ int main(int argc, char **argv) {
 
 // Tests for Data Handler
 //std::string file_path = "../data/template_file.txt";
-std::string file_path = "/home/kshevche/myfiles/Programmation/exercise/work/PCSC_data_approximation/data/template_file.txt";
+std::string file_path = "../data/template_file.txt";
 DataHandler DataHandler_t(file_path);
 int dimension = DataHandler_t.get_dimension();
 int n_points = DataHandler_t.get_number_data_points();

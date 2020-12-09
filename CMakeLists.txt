@@ -3,7 +3,7 @@ project (PCSC_data_approximation)
 
 set(CMAKE_CXX_STANDARD 14)
 
-include_directories("libraries/eigen/eigen")
+include_directories("libraries/eigen")
 
 #add_library(pcsc src/pcsc.cc)
 

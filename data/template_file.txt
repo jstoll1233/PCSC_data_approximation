@@ -1,6 +1,6 @@
 ﻿dimension,2
 number_of_points,5
-variables,y,x
+variables,x,y
 1,3
 2,19
 3,67

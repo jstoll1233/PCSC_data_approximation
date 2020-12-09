@@ -12,15 +12,22 @@
  */
 class Interpolation {
 protected:
-    double Denominator(const DataHandler& data_, int k);
+    double Denominator(int k);
+    double** data_;
+    int num_dp_;
+    double range_min;
+    double range_max;
 public:
+    Interpolation(const DataHandler& handler);
+    int get_range_min() const;
+    int get_range_max() const;
     /**
     * Function for calculating the value of the interpolating function
     * @param data_ containing the data
     * @param point - the point where you want to calculate the value of the interpolating function
     * @return value of the interpolating function at point x
     **/
-    virtual double Calculate_value_of_interpolant(const DataHandler& data_, double point) = 0;
+    virtual double Calculate_value_of_interpolant(double point) = 0;
 };
 
 
