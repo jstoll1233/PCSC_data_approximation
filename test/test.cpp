@@ -124,6 +124,7 @@ TEST(lagrange, point_exception){
 TEST(lagrange, lagrange_calculation) {
     EXPECT_NEAR(lagrange.Calculate_value_of_interpolant(3), 67, 0.001);
     EXPECT_NEAR(lagrange.Calculate_value_of_interpolant(2.5), 37.875, 0.001);
+    EXPECT_NEAR(lagrange.Calculate_value_of_interpolant(3.5), 108.625, 0.001);
 }
 
 
@@ -137,7 +138,8 @@ TEST(barycentric, point_exception){
 
 TEST(barycentric, barycentric_calculation) {
     EXPECT_NEAR(barycentric.Calculate_value_of_interpolant(4), 165, 0.001);
-    EXPECT_NEAR(lagrange.Calculate_value_of_interpolant(2.5), 37.875, 0.001);
+    EXPECT_NEAR(barycentric.Calculate_value_of_interpolant(2.5), 37.875, 0.001);
+    EXPECT_NEAR(barycentric.Calculate_value_of_interpolant(3.5), 108.625, 0.001);
 
 }
 
@@ -148,7 +150,12 @@ LeastSquares leastsquares(DataHandler_t_, 3);
 TEST(least_squares, least_squares_calculation) {
     EXPECT_NEAR(leastsquares.Calculate_value_at_point(2), 19, 0.001);
     EXPECT_NEAR(leastsquares.Calculate_value_at_point(2.5), 37.875, 0.001);
-    EXPECT_NEAR(leastsquares.Calculate_value_at_point(4), 165, 0.001);
+    EXPECT_NEAR(leastsquares.Calculate_value_at_point(3.5), 108.625, 0.001);
+}
+
+TEST(least_squares, point_exception){
+nan_ = leastsquares.Calculate_value_at_point(0.5);
+EXPECT_EQ(std::isnan(nan_),1);
 }
 
 

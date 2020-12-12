@@ -18,6 +18,10 @@ class LeastSquares{
     private:
     Eigen::VectorXf coefs;
     int deg;
+    double** data_;
+    int num_dp_;
+    double range_min;
+    double range_max;
 };
     /**
      * Function for least squares aprroximation
