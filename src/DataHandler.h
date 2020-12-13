@@ -23,12 +23,21 @@ class DataHandler {
      */
     ~DataHandler();
     /**
+     * Getter method for the data.
      * @return matrix of pointers. The data matrix
      */
     double** get_data() const;
+    /**
+     * Getter method for the number of data points.
+     * @return the number of data points contained in the data.
+     */
     int get_number_data_points() const;
+    /**
+     * Getter method for the dimension of the problem
+     * @return dimension of the problem (number of variables)
+     */
     int get_dimension() const;
-    std::string* get_variables() const;
+    //std::string* get_variables() const;
 
 
     private:
@@ -37,13 +46,25 @@ class DataHandler {
      * @param file stream to read from data file
      */
     void read_data();
+    /**
+     * Input file stream. Allows to read the data from the input file.
+     */
     std::ifstream file;
     /**
      * dimension of the problem
      */
     int dim;
+    /**
+     * Number of data points
+     */
     int num_dp;
+    /**
+     * Name of the variables of the problem.
+     */
     std::string* var;
+    /**
+     * Matrix of data
+     */
     double** data;
 };
 

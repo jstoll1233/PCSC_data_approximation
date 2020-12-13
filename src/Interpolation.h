@@ -22,9 +22,23 @@ protected:
      * @return One term of the denominator of the lagrange expression.
      */
     double Denominator(int k);
+    /**
+     * The data that should be used for the data interpolation.
+     */
     double** data_;
+    /**
+     * Number of data points for the data interpolation.
+     */
     int num_dp_;
+    /**
+     * Minimum of the range on which data interpolation (and evaluation) can be performed. Determined by
+     * the input data.
+     */
     double range_min;
+    /**
+     * Maximum of the range on which data interpolation (and evaluation) can be performed. Determined by
+     * the input data.
+     */
     double range_max;
 public:
     /**
@@ -41,6 +55,5 @@ public:
     **/
     virtual double Calculate_value_of_interpolant(double point) = 0;
 };
-
 
 #endif //PCSC_EXERCISES_INTERPOLATION_H

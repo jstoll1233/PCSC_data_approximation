@@ -28,11 +28,32 @@ class LeastSquares{
     double Calculate_value_at_point(const double point);
 
     private:
+    /**
+     * Vector of type Eigen::VectorXf containing the coefficients of the polynomial.
+     * Found with least squares.
+     */
     Eigen::VectorXf coefs;
+    /**
+     * Degree of the polynomial that should be generated with least squares.
+     */
     int deg;
+    /**
+     * The data that should be used for the data approximation with least squares.
+     */
     double** data_;
+    /**
+     * Number of data points for the data approximation.
+     */
     int num_dp_;
+    /**
+     * Minimum of the range on which data approximation can be performed. Determined by
+     * the input data.
+     */
     double range_min;
+    /**
+     * Maximum of the range on which data approximation can be performed. Determined by
+     * the input data.
+     */
     double range_max;
 };
     
