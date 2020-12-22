@@ -15,8 +15,8 @@ Before running our program, you should install the following libraries:
 
 For execution of the program:
 - move to folder "PCSC_data_approximation" and use the next commands:
-–  mkdir build
-–  cd build
-–  cmake ..
-–  make
-–  ./data_approximation  (or  ./test_pcsc  for  execution  oftests)
+- mkdir build
+- cd build
+- cmake ..
+- make
+- ./data_approximation  (or  ./test_pcsc for execution of tests)
