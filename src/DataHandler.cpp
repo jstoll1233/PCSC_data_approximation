@@ -37,7 +37,7 @@ void DataHandler::read_data() {
         std::getline(file, line);
         try{num_dp = std::stoi(line);}
         catch (std::invalid_argument &e) {
-            throw std::invalid_argument("Problem reading dimension. Check input file");
+            throw std::invalid_argument("Problem reading number of points. Check input file");
         }
     }
     else{

@@ -34,10 +34,12 @@ LeastSquares::LeastSquares(const DataHandler& handler, const int degree) {
 }
 
 double LeastSquares::Calculate_value_at_point(const double point) {
+    /*
     if ((point < range_min) || (point > range_max)) {
         return std::numeric_limits<double>::quiet_NaN();
 
     }
+     */
     double evaluation = 0.0;
     for (int i = 0; i < deg+1; ++i){
         evaluation += coefs(i)*pow(point,i);

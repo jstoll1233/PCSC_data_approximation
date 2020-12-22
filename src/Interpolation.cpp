@@ -6,8 +6,15 @@
 
 Interpolation::Interpolation(const DataHandler& handler)
 {
-    num_dp_ = handler.get_number_data_points();
-    data_ = handler.get_data();
+    try {
+        num_dp_ = handler.get_number_data_points();
+        data_ = handler.get_data();
+    }
+
+    catch (std::runtime_error &e) {
+
+
+    }
 
     range_max = data_[0][0];
     range_min = data_[0][0];

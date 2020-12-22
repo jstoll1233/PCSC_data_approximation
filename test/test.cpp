@@ -107,15 +107,15 @@ TEST(datahandler, read_data_exception){
 }
 
 
-DataHandler DataHandler_t_(file_path);
-int dimension_ =  DataHandler_t_.get_dimension();
-int n_points_ =  DataHandler_t_.get_number_data_points();
-double** data_ = DataHandler_t_.get_data();
+//DataHandler DataHandler_t_(file_path);
+//int dimension_ =  DataHandler_t_.get_dimension();
+//int n_points_ =  DataHandler_t_.get_number_data_points();
+//double** data_ = DataHandler_t_.get_data();
 
-Lagrange lagrange(DataHandler_t_);
+Lagrange lagrange(DataHandler_t);
 double nan_ = std::numeric_limits<double>::quiet_NaN();
 
-TEST(lagrange, point_exception){
+TEST(lagrange, point_nan){
     nan_ = lagrange.Calculate_value_of_interpolant(0.5);
     EXPECT_EQ(std::isnan(nan_),1);
 }
@@ -128,9 +128,9 @@ TEST(lagrange, lagrange_calculation) {
 }
 
 
-Barycentric barycentric(DataHandler_t_);
+Barycentric barycentric(DataHandler_t);
 
-TEST(barycentric, point_exception){
+TEST(barycentric, point_nan){
     nan_ = barycentric.Calculate_value_of_interpolant(5);
     EXPECT_EQ(std::isnan(nan_),1);
 }
@@ -145,7 +145,7 @@ TEST(barycentric, barycentric_calculation) {
 
 //Eigen::VectorXf vect(3);
 //vect(0) = -0.0144, vect(1) = 0.192, vect(2) = 3.697;
-LeastSquares leastsquares(DataHandler_t_, 3);
+LeastSquares leastsquares(DataHandler_t, 3);
 
 TEST(least_squares, least_squares_calculation) {
     EXPECT_NEAR(leastsquares.Calculate_value_at_point(2), 19, 0.001);
@@ -153,9 +153,10 @@ TEST(least_squares, least_squares_calculation) {
     EXPECT_NEAR(leastsquares.Calculate_value_at_point(3.5), 108.625, 0.001);
 }
 
-TEST(least_squares, point_exception){
+/*
+TEST(least_squares, point_nan){
 nan_ = leastsquares.Calculate_value_at_point(0.5);
 EXPECT_EQ(std::isnan(nan_),1);
 }
-
+*/
 
