@@ -1,5 +1,5 @@
 # PCSC_data_approximation
-This program performs data interpolation by Lagrange and Barycentric interpolation and data approximation by Least-squares method.
+This program performs data interpolation by Lagrange and Barycentric interpolation and data approximation by Least-squares method for two-dimensional data.
 
 Structure of this project is following:
 - folder "src", which contains files with code of our program - classes DataHandler, Interpolation, Lagrange, Barycentric, LeastSquares and main.cpp file;
