@@ -58,14 +58,14 @@ int main(int argc, char ** argv){
 
             }
             case 2:{
-                std::cout << "Method of Lagrange interpolation will generate a polynomial of degree : " << std::endl;
+                std::cout << "Method of Lagrange interpolation will generate a polynomial of degree : " << degree << std::endl;
                 Lagrange interpolation(handler_input);
                 interpolation_evaluation(handler_input, handler_output, interpolation);
                 break;
 
             }
             case 3:{
-                std::cout << "Method of barycentric interpolation will generate a polynomial of degree : " <<  std::endl;
+                std::cout << "Method of barycentric interpolation will generate a polynomial of degree : " << degree <<  std::endl;
                 Barycentric interpolation(handler_input);
                 interpolation_evaluation(handler_input, handler_output, interpolation);
                 break;
@@ -80,15 +80,16 @@ int main(int argc, char ** argv){
         }
     }
 
-    catch (std::runtime_error &e) {
+    catch (std::invalid_argument &e) {
         std::cerr << e.what() << std::endl;
         return 1;
     }
-    catch (std::invalid_argument &e) {
+    catch (std::range_error &e) {
         std::cerr << e.what() << std::endl;
         return 2;
     }
-    catch (std::range_error &e) {
+
+    catch (std::runtime_error &e) {
         std::cerr << e.what() << std::endl;
         return 3;
     }
