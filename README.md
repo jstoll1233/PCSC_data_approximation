@@ -14,7 +14,7 @@ Before running our program, you should install the following libraries:
 - gooogletest, that you can clone from https://github.com/google/googletest.git.
 
 For execution of the program:
-- move to folder "PCSC_data_approximation" and use the next commands:
+- move to folder "PCSC_data_approximation" and use the following commands:
 - mkdir build
 - cd build
 - cmake ..
@@ -22,5 +22,5 @@ For execution of the program:
 - ./data_approximation  (or  ./test_pcsc for execution of tests)
 
 For generation of the documentation (with doxygen):
-- move to folder "PCSC_data_approximation/doc/html"
+- move to folder "PCSC_data_approximation/doc/html" and use the following commands:
 - firefox index.html
