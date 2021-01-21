@@ -20,3 +20,7 @@ For execution of the program:
 - cmake ..
 - make
 - ./data_approximation  (or  ./test_pcsc for execution of tests)
+
+For generation of the documentation (with doxygen):
+- move to folder "PCSC_data_approximation/doc/html"
+- firefox index.html
