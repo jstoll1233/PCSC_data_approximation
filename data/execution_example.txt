@@ -1,0 +1,8 @@
+dimension,2
+number_of_points,5
+variables,x,y
+-2.0,4.0
+-1.0,2.0
+-0.5,2.6875
+0.75,-1.19921875
+2.0,8.0
