@@ -22,5 +22,7 @@ For execution of the program:
 - ./data_approximation  (or  ./test_pcsc for execution of tests)
 
 For generation of the documentation (with doxygen):
-- move to folder "PCSC_data_approximation/doc/html" and use the following commands:
+- move to folder "PCSC_data_approximation/doc" and use the following commands:
+- doxygen Doxyfile
+- cd html
 - firefox index.html
